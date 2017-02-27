@@ -10,7 +10,7 @@ var port = process.env.PORT || 3000;
 var router = express.Router();
 router.get('/',function(req,res){
  // Express determines the common header type.
- res.end("<h1>Express is running</h1>");
+ res.end("<h1>Express and Nodemon is running now</h1>");
 });
 // This will navigate all router to proceed /home
 app.use('/home',router);
