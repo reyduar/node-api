@@ -30,9 +30,9 @@ function editLyrics (req, res){
 	Lyric.findByIdAndUpdate(id, params, (err, lyricUpdated) => {
 		if(err){
 			res.status(500).send({message: "Error to update lyric", lyricId: id});
+		}else{
+			res.status(200).send({message: "Success to update lyric", lyric: lyricUpdated});
 		}
-		
-		res.status(200).send({message: "Success to update lyric", lyric: lyricUpdated});
 	});
 }
 
@@ -61,11 +61,13 @@ function getAllLyrics (req, res){
 	Lyric.find({}).sort('artist').exec((err, lyrics) => {
 		if(err){
 			res.status(500).send({message: "Error to get all lyrics"});
+		}else{
+			if(!lyrics){
+				res.status(404).send({message: "Empty lyrics collection"});
+			}else{
+				res.status(200).send({lyrics: lyrics});
+			}
 		}
-		if(!lyrics){
-			res.status(404).send({message: "Empty lyrics collection"});
-		}
-		res.status(200).send({lyrics: lyrics});
 	});
 }
 
@@ -74,14 +76,15 @@ function getLyricById (req, res){
 	Lyric.findById(id, (err, lyric) => {
 		if(err){
 			res.status(500).send({message: "Error to get lyric", lyricId: id});
+		}else{
+			if(!lyric){
+				res.status(404).send({message: "No found"});
+			}else{
+				res.status(200).send({lyric: lyric});
+			}
 		}
-		if(!lyric){
-			res.status(404).send({message: "No found"});
-		}
-		res.status(200).send({lyric: lyric});
 	});
 }
-
 
 module.exports = {
 	isAlive,
