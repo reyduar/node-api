@@ -1,0 +1,20 @@
+{
+  "name": "lyrics-api",
+  "version": "1.0.0",
+  "description": "api restful to lyrics web app",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ariel Duarte",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.16.1",
+    "express": "^4.14.1",
+    "mongoose": "^4.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}

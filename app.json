@@ -1,0 +1,7 @@
+{
+  "name": "lyric-api",
+  "description": "Create By Ariel Duarte (c)2017",
+  "repository": "https://github.com/reyduar/node-api/",
+  "logo": "http://node-js-sample.herokuapp.com/node.svg",
+  "keywords": ["angular2", "express", "node"]
+}
