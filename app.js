@@ -4,8 +4,6 @@ var express = require("express");
 var bodyParser = require('body-parser')
 var app = express();
 
-app.use(express.static(__dirname));
-
 var router = require('./routers/lyricsRoute');
 
 app.use(bodyParser.urlencoded({ extended: false }));
