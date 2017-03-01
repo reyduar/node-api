@@ -1,6 +1,16 @@
 'use stritc'
 
 var Lyric = require('../models/lyric');
+
+
+function welcome (req, res) {
+	res.status(200).send({
+		message: "Welcome to Death Lyric Api",
+		author: "By Ariel Duarte (c)2017",
+		backEnd: "Node.js",
+		endpoint:["IsAlive => /api/isAlive", "Find by Id => /api/lyric/:id", "Find All => /api/lyrics", "Add a new lyric => /api/lyric/add", "Edit lyric => /api/lyric/edit/:id", "Delete lyric => /api/lyric/delete/:id"]});
+}
+
 function isAlive (req, res) {
 	res.status(200).send({serverConnection: "is alive!!!"});
 }
@@ -54,7 +64,7 @@ function deleteLyrics (req, res){
 			});
 		}
 	});
-	
+
 }
 
 function getAllLyrics (req, res){
@@ -87,6 +97,7 @@ function getLyricById (req, res){
 }
 
 module.exports = {
+	welcome,
 	isAlive,
 	getLyricById,
 	addLyric,

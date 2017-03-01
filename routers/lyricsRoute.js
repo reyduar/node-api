@@ -5,6 +5,9 @@ var lyricsController = require('../controllers/lyricsController');
 var router = express.Router();
 
 // Route for test is alive server
+router.get('/', lyricsController.welcome);
+
+// Route for test is alive server
 router.get('/isAlive', lyricsController.isAlive);
 
 //Route for get lyric by Id
