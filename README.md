@@ -2,14 +2,14 @@
 
 ### Uses
 
-- Express ( http://expressjs.com/es/ )
+- [Express] ( http://expressjs.com/es/ )
 - [Node.js] ( https://nodejs.org/es/ )
 - [MongoDB mLab]  ( https://mlab.com/welcome/ )
 
 ## Running in Local Machine
-
-´npm start´
-
+```js
+npm start
+```
 ## Running in Heroku
 
 [API] (https://deathlyric-api.herokuapp.com/api/)
@@ -19,7 +19,7 @@
 ## Deploying App in Heroku with Express Server
 
 1. Create a app.json file
-´
+```js
 {
   "name": "lyric-api",
   "description": "Create By Ariel Duarte (c)2017",
@@ -27,17 +27,16 @@
   "logo": "http://node-js-sample.herokuapp.com/node.svg",
   "keywords": ["angular2", "express", "node"]
 }
-´
+```
 2. Create Procfile file with a command format:
 
-´
+```js
 web: node server.js
-´
-Yes the Express.js configuration is on server.js
+```
 
 3. Create a Express config on a server.js file
 
-´
+```js
 // load express module.
 var express = require("express");
 var bodyParser = require('body-parser')
@@ -60,16 +59,16 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.listen(port, function(){
 	console.log(`Listening at Server http://localhost:${port}`);
 });
-´
+```
 
 4. Add on script part on package.json file
 
-´
+```js
 "scripts": {
   "start": "node server.js",
   "test": "echo \"Error: no test specified\" && exit 1"
 },
-´
+```
 
 
 ## Author
