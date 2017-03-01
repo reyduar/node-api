@@ -18,7 +18,7 @@ npm start
 
 ## Deploying App in Heroku with Express Server
 
-1. Create a app.json file
+- Create a app.json file
 ```js
 {
   "name": "lyric-api",
@@ -28,13 +28,13 @@ npm start
   "keywords": ["angular2", "express", "node"]
 }
 ```
-2. Create Procfile file with a command format:
+- Create Procfile file with a command format:
 
 ```js
 web: node server.js
 ```
 
-3. Create a Express config on a server.js file
+- Create a Express config on a server.js file
 
 ```js
 // load express module.
@@ -61,7 +61,7 @@ app.listen(port, function(){
 });
 ```
 
-4. Add on script part on package.json file
+- Add on script part on package.json file
 
 ```js
 "scripts": {
