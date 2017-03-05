@@ -15,6 +15,7 @@ app.use((req, res, next) => {
 	res.header('Access-Control-Allow-Headers', '*');
 	res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, DELETE, PUT');
 	res.header('Allow', 'GET, POST, OPTIONS, DELETE, PUT');
+	res.header('Access-Control-Allow-Headers', 'Content-Type');
 	next();
 });
 
