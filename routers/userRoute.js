@@ -11,7 +11,7 @@ var multipart = require('connect-multiparty');
 var md_upload = multipart( {uploadDir: './uploads/users'} );
 
 //Route for get by Id
-router.get('/user/search/:id', md_auth.ensureAuth, userController.getById);
+router.get('/user/find-one/:id', md_auth.ensureAuth, userController.getById);
 
 //Route for create
 router.post('/user/create', [md_auth.ensureAuth, md_admin.isAdmin], userController.create);
@@ -26,7 +26,7 @@ router.put('/user/update/:id', md_auth.ensureAuth, userController.update);
 router.delete('/user/delete/:id', [md_auth.ensureAuth, md_admin.isAdmin], userController.remove);
 
 //Route for get all
-router.get('/users', md_auth.ensureAuth, userController.getAll);
+router.get('/user/find-all', md_auth.ensureAuth, userController.getAll);
 
 //Route for upload user image
 router.post('/user/upload-avatar/:id', [md_auth.ensureAuth, md_upload], userController.uploadImage);

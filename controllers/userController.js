@@ -193,7 +193,7 @@ function login(req, res) {
 							}
 							
 						} else {
-							res.status(404).send({message: "username or password incorrect"});
+							res.status(404).send({message: "Incorrect username or password  "});
 						}
 					});
                     
