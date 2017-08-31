@@ -53,8 +53,15 @@ function create (req, res){
 function update (req, res){
 	var id = req.params.id;
 	var params = req.body;
+	// encrypt password
+	if(params.password){
+		 	bcrypt.hash(params.password, null, null, function(err, hash) {
+        	params.password = hash;
+    	});
+	}
+   
 	if(id != req.user.sub){
-		res.status(403).send({message: "Do not have permissions"});
+		res.status(403).send({message: "Do not have permissions to update data from other users"});
 	}else{
 		User.findByIdAndUpdate(id, params, {new: true}, (err, updated) => {
 			if(err){
