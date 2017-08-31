@@ -52,18 +52,21 @@ function create (req, res){
 
 function update (req, res){
 	var id = req.params.id;
-	var params = req.body;
+        
 	// encrypt password
-	if(params.password){
-		 	bcrypt.hash(params.password, null, null, function(err, hash) {
-        	params.password = hash;
-    	});
+	if(req.body.password){
+		req.body.password = bcrypt.hashSync(req.body.password); 
+		console.log("cryppassword: "+ req.body.password);
+		/* bcrypt.hash(req.body.password, null, null, function(err, hash) {
+        	req.body.password = hash;
+        	console.log("cryppassword: "+ req.body.password);
+    	});*/
 	}
    
 	if(id != req.user.sub){
 		res.status(403).send({message: "Do not have permissions to update data from other users"});
 	}else{
-		User.findByIdAndUpdate(id, params, {new: true}, (err, updated) => {
+		User.findByIdAndUpdate(id, req.body, {new: true}, (err, updated) => {
 			if(err){
 				res.status(500).send({message: "Error to update", update: id});
 			}else{
